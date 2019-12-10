@@ -1,6 +1,6 @@
 ---
-title: "Nick Strayer's CV"
-author: Nick Strayer
+title: "Brad Segal's CV"
+author: Brad Segal
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -17,9 +17,10 @@ knitr::opts_chunk$set(
 
 library(glue)
 library(tidyverse)
+library(fontawesome)
 
 # Set this to true to have links turned into footnotes at the end of the document
-PDF_EXPORT <- FALSE
+PDF_EXPORT <- TRUE
 
 # Holds all the links that were inserted for placement at the end
 links <- c()
@@ -47,59 +48,53 @@ if(PDF_EXPORT){
 Aside
 ================================================================================
 
-
-![logo](beta_dist.png){width=100%}
+![logo](BS Logo.png){width=100%}
 
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _nickstrayer.me/cv_")
+  cat("View this CV online with links at _segal.co.za_")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/nstrayer/cv/raw/master/strayer_cv.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/BradSegal/cv/raw/master/segal_cv.pdf)")
 }
 ```
 
-Contact {#contact}
+Contact {#contacts}
 --------------------------------------------------------------------------------
 
+- <i class="fa fa-envelope"></i> [Brad@Segal.co.za](mailto:Brad@Segal.co.za)
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
+- <i class="fa fa-github"></i> [github.com/BradSegal](https://github.com/BradSegal)
+
+- <i class="fa fa-linkedin"></i> [linkedin.com/BradMaxSegal](https://www.linkedin.com/in/bradmaxsegal/)
+
+- <i class="fa fa-phone"></i> [+27 791-737-867](tel:+27791737867)
 
 
 
-Language Skills {#skills}
+Skills {#skills}
 --------------------------------------------------------------------------------
 
-```{r}
-skills <- tribble(
-  ~skill,               ~level,
-  "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
-)
-
-build_skill_bars(skills)
-```
-
-
-
+- `r fa("stethoscope")` Clinical Medicine
+- `r fa("search")` Research
+- `r fa("robot")` Machine Learning 
+  - PyTorch, SciKit Learn
+- `r fa("signal")` Data Analysis
+- `r fa("cube")` 3D Printing
+- `r fa("chalkboard-teacher")` Teaching / Tutoring
+- `r fa("code")` Programming:
+  - `r fa("python")` Python 
+  - `r fa("r-project")` R 
+  - `r fa("java")` Java
+  - `r fa("google")` Flutter / Dart
+  - `r fa("android")` Android 
+  - `r fa("js")` JavaScript / Typescript
+  - `r fa("angular")` Angular
+  - `r fa("fire")` Firebase
 
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
-
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
-
-The source code is available at [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
-
 Last updated on `r Sys.Date()`.
 
 
@@ -108,14 +103,12 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Brad Segal {#title}
 --------------------------------------------------------------------------------
 
-
 ```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
-
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
+intro_text <- "
+I am an aspiring medical student with a passion for technology and development. While studying medicine I have been working on a variety of other projects such as an automated marking and analytics suite for medical exams, a lightweight management software for student-run events and 3D printing a variety of medical models. I am an artificial intelligence enthusiast and aim to work to combine this passion alongside my medical career to develop tools to aid in patient care and streamline diagnostics.
 "
 
 cat(sanitize_links(intro_text))
@@ -131,6 +124,13 @@ print_section(position_data, 'education')
 ```
 
 
+Certificates {data-icon=certificate data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'certificates')
+```
+
 
 Research Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
@@ -140,68 +140,15 @@ print_section(position_data, 'research_positions')
 ```
 
 
-
-Industry Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
-
-::: aside
-I have worked in a variety of roles ranging from journalist to software engineer to data scientist. I like collaborative environments where I can learn from my peers. 
-:::
-
-```{r}
-print_section(position_data, 'industry_positions')
-```
-
-<br>
-<br>
-<br>
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-::: aside
-I am passionate about education. I believe that no topic is too complex if the teacher is empathetic and willing to think about new methods of approaching task. 
-:::
-
-```{r}
-print_section(position_data, 'teaching_positions')
-```
-
-
-Selected Data Science Writing {data-icon=chart-line}
---------------------------------------------------------------------------------
-
-
-::: aside
-I regularly blog about data science and visualization on my blog [LiveFreeOrDichotomize.](https://livefreeordichotomize.com/)
-:::
-
-```{r}
-print_section(position_data, 'data_science_writings')
-```
-
-
-
-Selected Press (About)  {data-icon=newspaper}
+General Experience {data-icon=briefcase}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'about_me_press')
+print_section(position_data, 'experience')
 ```
 
 
-
-Selected Press (By)  {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, 'by_me_press')
-```
-
-
-
-
-Selected Publications, Posters, and Talks {data-icon=book}
+Publications, Posters, and Talks {data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
