@@ -94,6 +94,9 @@ Skills {#skills}
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
+-
+-
+-
 Last updated on `r Sys.Date()`.
 Written in R with use of the *Pagedown* package.
 
@@ -108,7 +111,7 @@ Brad Segal {#title}
 
 ```{r}
 intro_text <- "
-I am an aspiring medical student with a passion for technology and development. While studying medicine I have been working on a variety of other projects such as an automated marking and analytics suite for medical exams, a lightweight management software for student-run events and 3D printing a variety of medical models. I am an artificial intelligence enthusiast and aim to work to combine this passion alongside my medical career to develop tools to aid in patient care and streamline diagnostics.
+I am an aspiring medical student with a passion for technology and development. While studying medicine, I have been working on a variety of other projects such as an automated marking and analytics suite for medical exams, a lightweight management software for student-run events and 3D printing of medical models. I am an artificial intelligence enthusiast and aim to work to combine this passion alongside my medical studies
 "
 
 cat(sanitize_links(intro_text))
